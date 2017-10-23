@@ -589,10 +589,16 @@ static int expand_line(ExpandStack *scope, TokenArray *list)
 int expand(TokenArray *list)
 {
     int n;
-    ExpandStack stack = get_expand_stack();
+    ExpandStack stack;
 
-    n = expand_line(&stack, list);
-    release_expand_stack(stack);
+    if (array_len(list) > 0) {
+        stack = get_expand_stack();
+        n = expand_line(&stack, list);
+        release_expand_stack(stack);
+    } else {
+        n = 0;
+    }
+
     return n;
 }
 
