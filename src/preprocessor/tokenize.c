@@ -385,6 +385,17 @@ struct token convert_preprocessing_char(struct token t)
     return tok;
 }
 
+TokenArray destringize(struct token t)
+{
+    char *buf;
+    const char *raw;
+
+    assert(t.token == PREP_STRING || t.token == STRING);
+    raw = str_raw(t.d.string);
+
+
+}
+
 /*
  * Parse character escape sequences like '\xaf', '\0', '\077' etc,
  * starting from *in.

@@ -431,6 +431,11 @@ static int is_lookahead_ready(int n)
     return 1;
 }
 
+static struct token destringize(String str)
+{
+    
+}
+
 static int preprocess_Pragma(TokenArray *line, int i)
 {
     struct token t;
